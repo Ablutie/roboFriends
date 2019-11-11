@@ -9,11 +9,21 @@ class App extends Component {
         super();
         this.state = {
             searchTerm:  "",
-            robots: robots
+            robots: []
         }
     }
     onSearchChange = (event) => {
         this.setState({searchTerm: event.target.value});
+    }
+
+    componentDidMount() {
+        fetch("https://jsonplaceholder.typicode.com/users")
+        .then(response => {
+            return response.json();
+        })
+        .then(users => {
+            this.setState({robots: users});
+        })
     }
 
     render() {
