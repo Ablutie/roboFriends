@@ -12,7 +12,7 @@ const CardList = (props) => {
                         id={robot.id}
                         email={robot.email} />);
                 })
-        };
+        }
         </div>
     );
 }
